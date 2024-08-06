@@ -44,6 +44,6 @@ This project demonstrates how to integrate multi-omics data using a Variational 
 ## Notes
 
 - The provided code uses synthetic data. Replace it with your own multi-omics datasets.
-- If taking preprocessed data from real single cell experiment consider regularizing sparsity (e.g. NN dropout) and also consider using CNN for imaging data
-- Consider exploring different VAE architectures and hyperparameters for optimal performance (e.g. activation function of BCE).
+- If taking preprocessed data from real single cell experiment consider regularizing sparsity (e.g. NN dropout) instead of dense NN layers and also consider using CNN for imaging data
+- Consider exploring different VAE architectures and hyperparameters for optimal performance (e.g. BCE as Loss).
 - SHAP analysis can be applied to different subsets of features or different machine learning models just to contribute to the notion of explainable DL.

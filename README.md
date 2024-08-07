@@ -38,13 +38,13 @@ This project demonstrates how to integrate multi-omics data using a Variational 
 
 ## Usage
 
-1. **Install the Required Libraries**: Ensure you have all necessary libraries installed.
+1. **Install the Required Libraries**: Ensure all necessary libraries installed.
 2. **Run the Provided Python Code**: Execute the Python code in an environment such as Google Colab or a local setup.
 3. **Adjust Parameters**: Modify parameters such as the number of epochs, batch size, and latent dimension as needed for your specific use case.
 
 ## Notes
 
-- **Synthetic Data**: The provided code uses synthetic data. Replace it with real multi-omics datasets for practical applications.
+- **Synthetic Data**: The provided code uses some fake simplified synthetic data. Replace it with real multi-omics preprocessed (ready-to-encode) data for practical applications.
 - **Data Sparsity**: When using real single-cell data, consider regularizing sparsity (e.g., using dropout) and exploring alternative architectures such as Convolutional Neural Networks (CNNs) for imaging data.
 - **Model Exploration**: Experiment with different VAE architectures and hyperparameters for optimal performance (e.g., using different loss functions).
 - **SHAP Analysis**: SHAP can be applied to different subsets of features or machine learning models to enhance interpretability and explainable AI.

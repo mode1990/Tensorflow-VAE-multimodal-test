@@ -1,49 +1,43 @@
-# Multi-Omics Data Integration with Variational Autoencoders (VAE) and SHAP Analysis
+Multi-Omics Data Integration with Variational Autoencoders (VAE) and SHAP Analysis
 
-This project demonstrates how to integrate multi-omics data using a Variational Autoencoder (VAE) and subsequently perform dimensionality reduction and feature importance analysis using Principal Component Analysis (PCA) and SHAP (SHapley Additive exPlanations).
+This project demonstrates how to integrate multi-omics data using a Variational Autoencoder (VAE) with a classification component. The process includes dimensionality reduction and feature importance analysis using Principal Component Analysis (PCA) and SHAP (SHapley Additive exPlanations).
 
-## Steps
+Steps
 
-1. **Data Generation and Preprocessing:**
-   - Synthetic multi-omics data is generated (scRNA-seq, scATAC-seq, cell painting).
-   - Data is combined and normalized.
+Data Generation and Preprocessing:
+Synthetic Data Generation: Creates synthetic multi-omics datasets (scRNA-seq, scATAC-seq, cell painting).
+Data Combination: Merges the different data types into a single dataset.
+Data Normalization: Normalizes the combined dataset to ensure consistency.
+VAE Model:
+Architecture: A VAE model with an encoder, decoder, and classifier is defined. The encoder learns latent representations, the decoder reconstructs the input data, and the classifier performs binary classification.
+Custom Loss Function: The model is trained using a custom loss function that combines reconstruction loss, KL divergence, and classification loss.
+Training: The model is trained using a custom training loop to optimize the loss function.
+Latent Representation and Classification:
+Latent Representations: Obtains latent representations from the trained encoder.
+Classification: Performs binary classification on the latent space representations and evaluates accuracy.
+Dimensionality Reduction and Feature Importance Analysis:
+PCA: Apply PCA for dimensionality reduction and use the elbow method to determine the optimal number of principal components.
+SHAP Analysis:
+Model Training: Train a Random Forest model on the top PCA components to predict a subset of original features.
+SHAP Values: Calculate SHAP values to explain the impact of each PCA component on the model’s predictions.
+Visualization: Generate SHAP summary and dependence plots to visualize feature importance.
+Requirements
 
-2. **VAE Model:**
-   - A VAE model is defined with an encoder and decoder to learn a latent representation of the data.
-   - The model is trained using a custom loss function (reconstruction loss + KL divergence).
+Python (>=3.6)
+NumPy
+TensorFlow
+Keras
+Matplotlib
+Scikit-learn
+SHAP
+Usage
 
-3. **Latent Representation:**
-   - Latent representations of the data are obtained using the trained encoder.
+Install the Required Libraries: Ensure you have all necessary libraries installed.
+Run the Provided Python Code: Execute the Python code in an environment such as Google Colab or a local setup.
+Adjust Parameters: Modify parameters such as the number of epochs, batch size, and latent dimension as needed for your specific use case.
+Notes
 
-4. **PCA and Elbow Method:**
-   - PCA is applied to the combined data for dimensionality reduction.
-   - The elbow method is used to determine the optimal number of principal components.
-
-5. **SHAP Analysis:**
-   - A Random Forest model is trained on the top PCA components to predict a subset of original features.
-   - SHAP values are calculated to explain the impact of each PCA component on the model's predictions.
-   - SHAP summary and dependence plots are generated to visualize feature importance.
-
-## Requirements
-
-- Python (>=3.6)
-- NumPy
-- Pandas
-- TensorFlow
-- Keras
-- Matplotlib
-- Scikit-learn
-- SHAP
-
-## Usage
-
-1. Install the required libraries.
-2. Run the provided Python code in a Google Colab environment.
-3. Adjust parameters (e.g., number of epochs, batch size, number of PCA components) as needed.
-
-## Notes
-
-- The provided code uses synthetic data. Replace it with your own multi-omics datasets.
-- If taking preprocessed data from real single cell experiment consider regularizing sparsity (e.g. NN dropout) instead of dense NN layers and also consider using CNN for imaging data
-- Consider exploring different VAE architectures and hyperparameters for optimal performance (e.g. BCE as Loss).
-- SHAP analysis can be applied to different subsets of features or different machine learning models just to contribute to the notion of explainable DL.
+Synthetic Data: The provided code uses synthetic data. Replace it with real multi-omics datasets for practical applications.
+Data Sparsity: When using real single-cell data, consider regularizing sparsity (e.g., using dropout) and exploring alternative architectures such as Convolutional Neural Networks (CNNs) for imaging data.
+Model Exploration: Experiment with different VAE architectures and hyperparameters for optimal performance (e.g., using different loss functions).
+SHAP Analysis: SHAP can be applied to different subsets of features or machine learning models to enhance interpretability and explainable AI.
